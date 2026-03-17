@@ -1,4 +1,4 @@
-export const beats = [
+/* export const beats = [
   {
     title: "Golden Heat | Afrobeat Type Beat",
     cover: "/assets/covers/goldenHeat.jpg",
@@ -72,3 +72,17 @@ export const beats = [
     tag2: "nostalgic",
   },
 ];
+ */
+
+const API_URL =
+  import.meta.env.VITE_API_BASE_URL || "http://localhost:3000/api";
+
+export const fetchBeats = async () => {
+  try {
+    const response = await fetch(`${API_URL}/beats`);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching beats:", error);
+  }
+};
